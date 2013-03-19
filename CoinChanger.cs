@@ -8,5 +8,9 @@ namespace CoinChanger1
 {
     public class CoinChanger
     {
+        public static int[] Change(int amount)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
