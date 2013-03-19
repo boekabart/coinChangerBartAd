@@ -14,9 +14,9 @@ namespace CoinChanger1
         {
             if (amount == 0)
                 return new int[0];
-            var coinOptions = ExistingCoins.Where(coin => coin <= amount);
-            var solutions = coinOptions.Select(coin =>
-                                               TakeCoinAndRecurseRest(amount, coin)).ToArray();
+            var coinOptions = ExistingCoins.Where(coinValue => coinValue <= amount);
+            var solutions = coinOptions.Select(coinValue =>
+                                               TakeCoinAndRecurseRest(amount, coinValue)).ToArray();
             var solutionsByQuality = solutions.OrderBy(set => set.Length);
             return solutionsByQuality.First();
         }
