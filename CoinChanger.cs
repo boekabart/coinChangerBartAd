@@ -8,7 +8,7 @@ namespace CoinChanger1
 {
     public class CoinChanger
     {
-        private static readonly int[] ExistingCoins = new[] {20, 10, 5, 2, 1};
+        private static readonly int[] ExistingCoins = new[] {20, 10, 7, 5, 2, 1};
 
         public static IEnumerable<int> Change(int amount)
         {
