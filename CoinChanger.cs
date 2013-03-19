@@ -8,10 +8,11 @@ namespace CoinChanger1
 {
     public class CoinChanger
     {
+        private static readonly int[] ExistingCoins = new[] {20, 10, 5, 2, 1};
         public static int[] Change(int amount)
         {
-            if (amount == 11)
-                return new[] {1,10};
+            if (amount>ExistingCoins[0])
+                return new[] { 1, ExistingCoins[0] };
             return new[] { amount };
         }
     }
