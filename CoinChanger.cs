@@ -10,7 +10,7 @@ namespace CoinChanger1
     {
         public static int[] Change(int amount)
         {
-            return new[] {1};
+            return new[] { amount };
         }
     }
 }

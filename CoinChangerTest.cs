@@ -7,8 +7,12 @@ namespace CoinChanger1
     public class CoinChangerTest
     {
         [Test]
-        [TestCase(1,1)]
-        public void In1_Out1( int amount, int expectedCount)
+        [TestCase(1, 1)]
+        [TestCase(2, 1)]
+        [TestCase(5, 1)]
+        [TestCase(10, 1)]
+        [TestCase(20, 1)]
+        public void In1_Out1(int amount, int expectedCount)
         {
             var actual = CoinChanger.Change(amount);
             Assert.AreEqual(expectedCount, actual.Count());
