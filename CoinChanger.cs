@@ -8,16 +8,24 @@ namespace CoinChanger1
 {
     public class CoinChanger
     {
-        private static readonly int[] ExistingCoins = new[] {20, 10, 7, 5, 2, 1};
+        private static readonly int[] ExistingCoins = new[] {20, 10, 7, 5, 1};
 
         public static IEnumerable<int> Change(int amount)
         {
-            foreach (var coin in ExistingCoins)
-            {
-                if (amount >= coin)
-                    return new[] {coin}.Concat(Change(amount - coin));
-            }
-            return new int[] {};
+            if (amount == 0)
+                return new int[0];
+            var coinOptions = ExistingCoins.Where(coin => coin <= amount);
+            var solutions = coinOptions.Select(coin =>
+                                               TakeCoinAndRecurseRest(amount, coin)).ToArray();
+            var solutionsByQuality = solutions.OrderBy(set => set.Length);
+            return solutionsByQuality.First();
+        }
+
+        private static int[] TakeCoinAndRecurseRest(int amount, int coin)
+        {
+            return new[] {coin}.
+                Concat(Change(amount - coin))
+                               .ToArray();
         }
     }
 }
