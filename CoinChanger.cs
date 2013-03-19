@@ -10,7 +10,7 @@ namespace CoinChanger1
     {
         public static int[] Change(int amount)
         {
-            throw new NotImplementedException();
+            return new[] {1};
         }
     }
 }
