@@ -11,9 +11,14 @@ namespace CoinChanger1
         private static readonly int[] ExistingCoins = new[] {20, 10, 5, 2, 1};
         public static int[] Change(int amount)
         {
-            if (amount>ExistingCoins[0])
-                return new[] { 1, ExistingCoins[0] };
-            return new[] { amount };
+            foreach (var coin in ExistingCoins)
+            {
+                if (amount == coin)
+                    return new[] { coin };
+                if (amount > coin)
+                    return new[] { 1, coin };
+            }
+            return new int[] {};
         }
     }
 }
