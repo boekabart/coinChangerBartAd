@@ -9,14 +9,13 @@ namespace CoinChanger1
     public class CoinChanger
     {
         private static readonly int[] ExistingCoins = new[] {20, 10, 5, 2, 1};
-        public static int[] Change(int amount)
+
+        public static IEnumerable<int> Change(int amount)
         {
             foreach (var coin in ExistingCoins)
             {
-                if (amount == coin)
-                    return new[] { coin };
-                if (amount > coin)
-                    return new[] { 1, coin };
+                if (amount >= coin)
+                    return new[] {coin}.Concat(Change(amount - coin));
             }
             return new int[] {};
         }
