@@ -12,6 +12,7 @@ namespace CoinChanger1
         [TestCase(5, 1)]
         [TestCase(10, 1)]
         [TestCase(20, 1)]
+        [TestCase(11, 2)]
         public void In1_Out1(int amount, int expectedCount)
         {
             var actual = CoinChanger.Change(amount);
