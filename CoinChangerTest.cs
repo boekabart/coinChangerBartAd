@@ -7,14 +7,12 @@ namespace CoinChanger1
     public class CoinChangerTest
     {
         [Test]
-        public void In1_Out1()
+        [TestCase(1,1)]
+        public void In1_Out1( int amount, int expectedCount)
         {
-            var amount = 1;
-            var expectedCount = 1;
             var actual = CoinChanger.Change(amount);
             Assert.AreEqual(expectedCount, actual.Count());
             Assert.AreEqual(amount, actual.Sum());
-
         }
     }
 }
